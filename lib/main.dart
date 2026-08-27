@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
+import 'admin/admin_login.dart';
 
 void main() {
   runApp(const AlbyStarApp());
@@ -21,6 +22,9 @@ class AlbyStarApp extends StatelessWidget {
         ),
       ),
       home: const HomeScreen(),
+      routes: {
+        '/admin': (context) => const AdminLogin(),
+      },
     );
   }
 }
