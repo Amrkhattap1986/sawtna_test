@@ -1,0 +1,6 @@
+[32mproot-distro[0m/stable 5.3.0 all
+  Termux official utility for managing proot'ed Linux distributions
+
+[32mtermux-gui-pm[0m/stable 1.0.0-4 all
+  A graphical package manager for various package formats for Termux and proot-distro distros
+
