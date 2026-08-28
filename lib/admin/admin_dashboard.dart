@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'admin_users.dart';
+import 'admin_rooms.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
@@ -94,6 +95,24 @@ class _AdminDashboardState extends State<AdminDashboard> {
     });
   }
 
+  void openUsers() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const AdminUsers(),
+      ),
+    );
+  }
+
+  void openRooms() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const AdminRooms(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,12 +120,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF191627),
         foregroundColor: Colors.white,
-        title: const Text('Gifts Management'),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: addGift,
-        icon: const Icon(Icons.add),
-        label: const Text('Add Gift'),
+        title: const Text('Sawtna Admin'),
       ),
       body: Column(
         children: [
@@ -116,24 +130,50 @@ class _AdminDashboardState extends State<AdminDashboard> {
               width: double.infinity,
               height: 52,
               child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AdminUsers(),
-                    ),
-                  );
-                },
+                onPressed: openUsers,
                 icon: const Icon(Icons.people),
                 label: const Text('Users Management'),
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 4, 12, 8),
+            child: SizedBox(
+              width: double.infinity,
+              height: 52,
+              child: ElevatedButton.icon(
+                onPressed: openRooms,
+                icon: const Icon(Icons.mic),
+                label: const Text('Live Rooms Management'),
+              ),
+            ),
+          ),
+          const Divider(color: Colors.white24),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            child: Row(
+              children: [
+                const Text(
+                  'Gifts Management',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Spacer(),
+                FloatingActionButton.small(
+                  onPressed: addGift,
+                  child: const Icon(Icons.add),
+                ),
+              ],
+            ),
+          ),
           SizedBox(
-            height: 55,
+            height: 48,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
               itemCount: categories.length,
               itemBuilder: (context, index) {
                 return Container(
