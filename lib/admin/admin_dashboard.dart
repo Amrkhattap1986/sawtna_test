@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'admin_users.dart';
 import 'admin_rooms.dart';
 import 'admin_reports.dart';
+import 'admin_overview.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
@@ -43,6 +44,26 @@ class _AdminDashboardState extends State<AdminDashboard> {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 4),
+            child: SizedBox(
+              width: double.infinity,
+              height: 52,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AdminOverview(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.dashboard),
+                label: const Text('Admin Overview'),
+              ),
+            ),
+          ),
+
               TextField(
                 controller: emoji,
                 decoration: const InputDecoration(labelText: 'Emoji'),
