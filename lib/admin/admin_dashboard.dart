@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'admin_users.dart';
 import 'admin_rooms.dart';
+import 'admin_reports.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
@@ -145,6 +146,25 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 onPressed: openRooms,
                 icon: const Icon(Icons.mic),
                 label: const Text('Live Rooms Management'),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 4, 12, 8),
+            child: SizedBox(
+              width: double.infinity,
+              height: 52,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AdminReports(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.report),
+                label: const Text('Reports Management'),
               ),
             ),
           ),
