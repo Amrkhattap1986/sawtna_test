@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'admin_users.dart';
 
 class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
@@ -109,6 +110,25 @@ class _AdminDashboardState extends State<AdminDashboard> {
       ),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 4),
+            child: SizedBox(
+              width: double.infinity,
+              height: 52,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AdminUsers(),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.people),
+                label: const Text('Users Management'),
+              ),
+            ),
+          ),
           SizedBox(
             height: 55,
             child: ListView.builder(
